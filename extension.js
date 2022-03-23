@@ -7,9 +7,6 @@ let signal_overlay_key = null;
 let original_signal_overlay_key = null;
 let settings = null;
 
-var cmd = "gedit";
-
-
 // Overview functions
 function overview_visible() {
     return Main.overview.visibleTarget;
@@ -29,13 +26,13 @@ var overlay_key_action = null;
 function overlay_key() {
     log("overlay key detected");
     overview_hide();
-    let proc = new Gio.Subprocess({argv: cmd.split(' ')});
+    let proc = new Gio.Subprocess({argv: overlay_key_action.split(' ')});
     proc.init(null);
 }
 
 function overlay_key_changed(settings) {
     overview_hide();
-    overlay_key_action = settings.get_enum("overlay-key-action");
+    overlay_key_action = settings.get_string("overlay-key-action");
 }
 
 function init(metadata) {}
