@@ -1,0 +1,11 @@
+{
+  "description": "Fork of Pop Launcher Super-Key: Binds the Super-Key to a chosen command",
+  "name": "Super-Key",
+  "settings-schema": "org.gnome.shell.extensions.super-key",
+  "shell-version": [
+    "41"
+  ],
+  "url": "https://github.com/tommimon",
+  "uuid": "super-key@tommimon.github.com",
+  "version": 1
+}

@@ -1,0 +1,8 @@
+# JetBrains related
+.idea/
+
+# Personal developer files
+private/
+
+# compiled files (not code)
+*.compiled
