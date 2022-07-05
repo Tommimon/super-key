@@ -6,3 +6,6 @@ private/
 
 # compiled files (not code)
 *.compiled
+
+# build result
+output
