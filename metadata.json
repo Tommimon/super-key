@@ -1,6 +1,6 @@
 {
-  "description": "Fork of Pop Launcher Super-Key: Binds the Super-Key to a chosen command",
-  "name": "Super-Key",
+  "description": "Fork of Pop Launcher Super-Key: Bind the Super-Key to a custom action",
+  "name": "Super Key",
   "settings-schema": "org.gnome.shell.extensions.super-key",
   "shell-version": [
     "41",
