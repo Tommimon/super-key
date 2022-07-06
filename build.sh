@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # compile schemas
 glib-compile-schemas schemas/
 
