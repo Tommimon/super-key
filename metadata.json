@@ -3,7 +3,6 @@
   "name": "Super Key",
   "settings-schema": "org.gnome.shell.extensions.super-key",
   "shell-version": [
-    "41",
     "42"
   ],
   "url": "https://github.com/tommimon",
