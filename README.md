@@ -3,7 +3,7 @@
 Bind the Super-Key to a custom action
 
 ## Overview
-This extension is a fork of Pop Launcher Super-Key. Instead of showing the Pop launcher the user
+This extension is a fork of [Pop Launcher Super-Key](https://github.com/ManeLippert/pop-launcher-super-key). Instead of showing the Pop launcher the user
 can choose to perform a custom action.
 
 The action performed can be chosen in the extension settings by entering the command to execute.
