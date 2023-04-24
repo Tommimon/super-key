@@ -1,8 +1,9 @@
-# Super Key
+# [![super-key-title][]][super-key-repo]
 
 Bind the Super-Key to a custom action
 
 ## Overview
+
 This extension is a fork of [Pop Launcher Super-Key](https://github.com/ManeLippert/pop-launcher-super-key). Instead of showing the Pop launcher the user
 can choose to perform a custom action.
 
@@ -23,6 +24,7 @@ Super Key solves this by activating the super action on release of the key if no
 in the meanwhile.
 
 ## Installation & Setup
+
 - Download zip from the releases section
 - Extract in a folder named `super-key@tommimon.github.com`
 - Add the `super-key@tommimon.github.com` folder to GNOME extensions folder*
@@ -41,5 +43,9 @@ if there isn't this directory, create it.
 you can log out instead.
 
 ## How does it work
+
 The default behaviour of <kbd>Super</kbd> is already both as key and modifier but the effect is to show the application
 overlay. This extension changes the shell code in order to run a custom command instead.
+
+[super-key-title]: https://github.com/Tommimon/super-key/blob/master/assets/title.png
+[super-key-repo]: https://github.com/Tommimon/super-key
