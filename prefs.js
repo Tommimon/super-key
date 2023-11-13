@@ -2,14 +2,9 @@ import Adw from 'gi://Adw';
 import Gio from 'gi://Gio';
 import Gtk from 'gi://Gtk';
 
-import * as ExtensionUtils from 'resource:///org/gnome/Shell/Extensions/js/misc/extensionUtils.js';
-import {ExtensionPreferences, gettext as _} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
+import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
 
-function init() {
-
-}
-
-export default class MyExtensionPreferences extends ExtensionPreferences {
+export default class SuperKeyPreferences extends ExtensionPreferences {
 	fillPreferencesWindow(window) {
 	    // Use the same GSettings schema as in `extension.js`
 	    const settings = this.getSettings();

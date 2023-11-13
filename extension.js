@@ -1,9 +1,8 @@
 import Gio from 'gi://Gio';
 import GObject from 'gi://GObject';
 
-import * as ExtensionUtils from 'resource:///org/gnome/shell/misc/extensionUtils.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-import {Extension, gettext as _} from 'resource:///org/gnome/shell/extensions/extension.js';
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 let signal_overlay_key = null;
 let original_signal_overlay_key = null;
@@ -37,9 +36,7 @@ function overlay_key_changed(settings) {
     overlay_key_action = settings.get_string("overlay-key-action");
 }
 
-function init(metadata) {}
-
-export default class MyTestExtension extends Extension {
+export default class SuperKey extends Extension {
 
 	enable() {
 	
