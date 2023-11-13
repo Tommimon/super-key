@@ -3,11 +3,9 @@
   "name": "Super Key",
   "settings-schema": "org.gnome.shell.extensions.super-key",
   "shell-version": [
-    "42",
-    "43",
-    "44"
+    "45"
   ],
   "url": "https://github.com/tommimon",
   "uuid": "super-key@tommimon.github.com",
-  "version": 4
+  "version": 5
 }
