@@ -25,7 +25,7 @@ function overview_hide() {
 var overlay_key_action = null;
 
 function overlay_key() {
-    log("overlay key detected");
+    console.log("overlay key detected");
     overview_hide();
     let proc = new Gio.Subprocess({argv: overlay_key_action.split(' ')});
     proc.init(null);
