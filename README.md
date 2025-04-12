@@ -49,3 +49,13 @@ overlay. This extension changes the shell code in order to run a custom command 
 
 [super-key-title]: https://github.com/Tommimon/super-key/blob/main/assets/title.png
 [super-key-repo]: https://github.com/Tommimon/super-key
+
+## Simulate other shortcuts
+
+Sometimes, is not possible to obtain the desired action with a command to run, but it is possible with a keyboard shortcut. If you want to bind the <kbd>Super</kbd> key to simulate a specific keyboard shortcut, the suggested tool is `ydotool`:
+
+1) Follow the installation instructions on the [project repository](https://github.com/ReimuNotMoe/ydotool).
+2) Start the `ydotoold` daemon with: `sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"`. If you want this to run automatically at startup, setup a system service instead.
+3) Setup the following command as <kbd>Super</kbd> key action: `bash -c 'YDOTOOL_SOCKET="$HOME/.ydotool_socket" ydotool key 125:1 31:1 31:0 125:0'`.
+
+The provided example shows how to bind <kbd>Super</kbd> to <kbd>Super</kbd> + <kbd>S</kbd> which opens GNOME quick settings menu. But you can decide to bind any keyboard shortcut or input, se [input-event-codes.h](https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h) for key codes reference.
