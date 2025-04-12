@@ -1,4 +1,5 @@
 import Gio from 'gi://Gio';
+import GLib from 'gi://GLib';
 import GObject from 'gi://GObject';
 
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -27,7 +28,8 @@ var overlay_key_action = null;
 function overlay_key() {
     console.log("overlay key detected");
     overview_hide();
-    let proc = new Gio.Subprocess({argv: overlay_key_action.split(' ')});
+    let args = GLib.shell_parse_argv(overlay_key_action)[1];  // We need to get the second element, which contains the actual arguments
+    let proc = new Gio.Subprocess({argv: args});
     proc.init(null);
 }
 
