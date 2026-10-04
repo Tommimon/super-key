@@ -1,0 +1,67 @@
+name: Create Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq zip libglib2.0-dev
+
+      - name: Run update-versions script
+        run: bash update-versions.sh > version-output.txt 2>&1
+        
+      - name: Extract versions
+        id: get_versions
+        run: |
+          VERSION=$(grep "Version:" version-output.txt | tail -1 | awk '{print $NF}')
+          SHELL_VERSION=$(grep "Shell-version:" version-output.txt | awk '{print $NF}')
+          echo "version=v${VERSION}" >> $GITHUB_OUTPUT
+          echo "shell_version=${SHELL_VERSION}" >> $GITHUB_OUTPUT
+          echo "Extracted version: v${VERSION}"
+          echo "Extracted shell-version: ${SHELL_VERSION}"
+
+      - name: Commit version updates
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add metadata.json
+          git commit -m "Bump extension and GNOME versions"
+          git push origin master
+
+      - name: Run build script
+        run: bash build.sh
+
+      - name: Create tag
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git tag ${{ steps.get_versions.outputs.version }}
+          git push origin ${{ steps.get_versions.outputs.version }}
+
+      - name: Generate release notes
+        id: release_notes
+        run: |
+          NOTES="GNOME ${{ steps.get_versions.outputs.shell_version }} Compatibility"
+          echo "notes=${NOTES}" >> $GITHUB_OUTPUT
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.get_versions.outputs.version }}
+          files: output/*
+          body: |
+            ${{ steps.release_notes.outputs.notes }}
+          generate_release_notes: true
+          draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
