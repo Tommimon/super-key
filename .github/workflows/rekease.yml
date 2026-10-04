@@ -36,7 +36,7 @@ jobs:
           git config user.email "actions@github.com"
           git add metadata.json
           git commit -m "Bump extension and GNOME versions"
-          git push origin master
+          git push origin main
 
       - name: Run build script
         run: bash build.sh
